@@ -1,0 +1,5 @@
+<div *ngFor="let movie of movies" class="m-4 p-4 shadow rounded-md">
+    <p>Name: {{movie.name}}</p>
+    <p>Release date: {{movie.date | date}}</p>
+    <p>Price: {{movie.price | currency}}</p>
+</div>
