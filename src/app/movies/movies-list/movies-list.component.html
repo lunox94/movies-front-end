@@ -1,14 +1,12 @@
-<div *ngIf="!movies || movies.length === 0; else moviesList" class="m-4 p-4">
-    No movies to show.
-</div>
-
-<ng-template #moviesList>
-    <div *ngFor="let movie of movies; let index = index" class="m-4 p-4 shadow rounded-lg">
-        <div class="flex flex-row items-center">
-            <p>Name: {{movie.name}}</p>
-            <button (click)="removeMovie(index)" class="ml-2 bg-red-500 p-1 rounded-lg text-white">Remove</button>
+<app-generic-list [list]="movies">
+    <div list>
+        <div *ngFor="let movie of movies; let index = index" class="m-4 p-4 shadow rounded-lg">
+            <div class="flex flex-row items-center">
+                <p>Name: {{movie.name}}</p>
+                <button (click)="removeMovie(index)" class="ml-2 bg-red-500 p-1 rounded-lg text-white">Remove</button>
+            </div>
+            <p>Release date: {{movie.date | date}}</p>
+            <p>Price: {{movie.price | currency}}</p>
         </div>
-        <p>Release date: {{movie.date | date}}</p>
-        <p>Price: {{movie.price | currency}}</p>
     </div>
-</ng-template>
+</app-generic-list>

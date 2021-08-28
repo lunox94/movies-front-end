@@ -1,0 +1,20 @@
+<div *ngIf="!list">
+    <div #loading>
+        <ng-content select="[loading]">
+        </ng-content>
+    </div>
+    <p *ngIf="!loading.innerHTML.trim()" class="m-4 p-4">Loading...</p>
+</div>
+
+<div *ngIf="list?.length === 0; else elements" class="m-4 p-4">
+    <div #empty>
+        <ng-content select="[empty]">
+        </ng-content>
+    </div>
+    <p *ngIf="!empty.innerHTML.trim()">No movies to show.</p>
+</div>
+
+<ng-template #elements>
+    <ng-content select="[list]">
+    </ng-content>
+</ng-template>
