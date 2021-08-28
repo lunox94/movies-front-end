@@ -6,7 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class MoviesListComponent implements OnInit {
 
-  @Input() movies: any[] = [];
+  @Input() movies: any[] | null = null;
 
   constructor() { }
 
@@ -14,7 +14,7 @@ export class MoviesListComponent implements OnInit {
   }
 
   removeMovie(index: number): void {
-    this.movies.splice(index, 1);
+    this.movies?.splice(index, 1);
   }
 
 }

@@ -5,12 +5,9 @@ import { Component, Input, OnInit } from '@angular/core';
   templateUrl: './generic-list.component.html',
 })
 export class GenericListComponent implements OnInit {
+  @Input() list: any[] | null = null;
 
-  @Input() list: Array<any> = [];
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

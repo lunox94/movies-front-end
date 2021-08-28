@@ -1,12 +1,23 @@
 <app-generic-list [list]="movies">
+    <mat-spinner loading [diameter]="25"></mat-spinner>
+    <p empty>No movies to show.</p>
     <div list>
-        <div *ngFor="let movie of movies; let index = index" class="m-4 p-4 shadow rounded-lg">
+        <div
+            *ngFor="let movie of movies; let index = index"
+            class="m-4 p-4 shadow rounded-lg"
+        >
             <div class="flex flex-row items-center">
-                <p>Name: {{movie.name}}</p>
-                <button (click)="removeMovie(index)" class="ml-2 bg-red-500 p-1 rounded-lg text-white">Remove</button>
+                <p class="mr-2">Name: {{ movie.name }}</p>
+                <button
+                    mat-raised-button
+                    color="warn"
+                    (click)="removeMovie(index)"
+                >
+                    Remove
+                </button>
             </div>
-            <p>Release date: {{movie.date | date}}</p>
-            <p>Price: {{movie.price | currency}}</p>
+            <p>Release date: {{ movie.date | date }}</p>
+            <p>Price: {{ movie.price | currency }}</p>
         </div>
     </div>
 </app-generic-list>

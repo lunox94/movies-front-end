@@ -1,9 +1,9 @@
-<div *ngIf="!list">
+<div *ngIf="!list" class="m-4 p-4">
     <div #loading>
         <ng-content select="[loading]">
         </ng-content>
     </div>
-    <p *ngIf="!loading.innerHTML.trim()" class="m-4 p-4">Loading...</p>
+    <p *ngIf="!loading.innerHTML.trim()">Loading...</p>
 </div>
 
 <div *ngIf="list?.length === 0; else elements" class="m-4 p-4">
@@ -11,7 +11,7 @@
         <ng-content select="[empty]">
         </ng-content>
     </div>
-    <p *ngIf="!empty.innerHTML.trim()">No movies to show.</p>
+    <p *ngIf="!empty.innerHTML.trim()">Nothing to show.</p>
 </div>
 
 <ng-template #elements>

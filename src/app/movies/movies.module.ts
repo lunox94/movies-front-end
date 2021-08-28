@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MoviesListComponent } from './movies-list/movies-list.component';
 import { GenericListModule } from '../core/generic-list/generic-list.module';
+import { MaterialModule } from '../core/material/material.module';
 
 
 
@@ -11,7 +12,9 @@ import { GenericListModule } from '../core/generic-list/generic-list.module';
   ],
   imports: [
     GenericListModule,
-    CommonModule
+    CommonModule,
+
+    MaterialModule
   ],
   exports: [
     MoviesListComponent,
