@@ -18,6 +18,6 @@ export class AppComponent {
       name: 'Mohana',
       date: Date.now(),
       price: 100,
-    },
+    }
   ];
 }
