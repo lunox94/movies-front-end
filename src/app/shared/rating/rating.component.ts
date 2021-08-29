@@ -8,14 +8,28 @@ export class RatingComponent implements OnInit {
   range: number[];
   
   @Input() starCount: number = 5;
+  @Input() rate: number = 0;
+
+  previewedRate: number = 0;
 
 
   constructor() {
-    this.range = Array.from({length: this.starCount}, (_, index: number) => index);
-    console.log(this.range)
+    this.range = Array.from({length: this.starCount}, () => 0);
   }
 
   ngOnInit(): void {
+  }
+
+  onMouseEnters(index: number) {
+    this.previewedRate = index + 1;
+  }
+
+  onMouseLeaves() {
+    this.previewedRate = this.rate;
+  }
+
+  onClick(index: number) {
+    this.rate = index + 1;
   }
 
 }
