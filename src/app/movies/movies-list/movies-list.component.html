@@ -2,9 +2,9 @@
     <mat-spinner loading [diameter]="25"></mat-spinner>
     <p empty>No movies to show.</p>
     <div list>
-        <div
+        <mat-card
             *ngFor="let movie of movies; let index = index"
-            class="m-4 p-4 shadow rounded-lg"
+            class="m-4"
         >
             <div class="flex flex-row items-center">
                 <p class="mr-2">Name: {{ movie.name }}</p>
@@ -19,6 +19,6 @@
             <p>Release date: {{ movie.date | date }}</p>
             <p>Price: {{ movie.price | currency }}</p>
             <app-rating></app-rating>
-        </div>
+        </mat-card>
     </div>
 </app-generic-list>
