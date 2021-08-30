@@ -1,19 +1,21 @@
-<span
-    *ngFor="let element of range; let index = index"
-    (mouseenter)="onMouseEnters(index)"
-    (mouseleave)="onMouseLeaves()"
-    (click)="onClick(index)"
-    class="cursor-pointer text-yellow-500"
->
-    <mat-icon
-        *ngIf="previewedRate > index || rate > index"
-        [ngClass]="{
-            'text-yellow-500': rate > index && previewedRate > index,
-            'text-yellow-300': previewedRate < rate
-        }"
-        >star</mat-icon
+<div>
+    <span
+        *ngFor="let element of range; let index = index"
+        (mouseenter)="onMouseEnters(index, $event)"
+        (mouseleave)="onMouseLeaves()"
+        (click)="onClick(index)"
+        class="cursor-pointer text-yellow-500"
     >
-    <mat-icon *ngIf="previewedRate <= index && rate <= index"
-        >star_outlined</mat-icon
-    >
-</span>
+        <mat-icon
+            [ngClass]="{
+                'text-yellow-500': rate > index && previewedRate > index,
+                'text-yellow-300':
+                    (previewedRate < rate && previewedRate > index) ||
+                    rate > index
+            }"
+            >{{
+                previewedRate > index || rate > index ? "star" : "star_outlined"
+            }}</mat-icon
+        >
+    </span>
+</div>

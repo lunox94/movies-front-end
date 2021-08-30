@@ -20,13 +20,12 @@ export class RatingComponent implements OnInit {
         this.previewedRate = this.rate;
     }
 
-    onMouseEnters(index: number) {
+    onMouseEnters(index: number, event: any) {
         this.previewedRate = index + 1;
     }
 
     onMouseLeaves() {
         this.previewedRate = this.rate;
-        console.log('leaves')
     }
 
     onClick(index: number) {
