@@ -1,3 +1,6 @@
-<mat-toolbar color="primary" class="sticky top-0 z-50">
+<mat-toolbar color="primary" class="sticky top-0 z-50 flex flex-row justify-between">
     <a mat-button><mat-icon>local_movies</mat-icon> Movies</a>
+    <mat-slide-toggle (change)="toggleTheme($event)">
+        <mat-icon>dark_mode</mat-icon>
+    </mat-slide-toggle>
 </mat-toolbar>

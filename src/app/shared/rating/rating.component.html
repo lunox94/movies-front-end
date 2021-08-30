@@ -9,7 +9,7 @@
         *ngIf="previewedRate > index || rate > index"
         [ngClass]="{
             'text-yellow-500': rate > index && previewedRate > index,
-            'text-yellow-300': previewedRate <= rate
+            'text-yellow-300': previewedRate < rate
         }"
         >star</mat-icon
     >

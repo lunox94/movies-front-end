@@ -1,24 +1,27 @@
 <app-generic-list [list]="movies">
     <mat-spinner loading [diameter]="25"></mat-spinner>
     <p empty>No movies to show.</p>
-    <div list>
+    <div list class="flex flex-row flex-wrap items-center">
         <mat-card
             *ngFor="let movie of movies; let index = index"
-            class="m-4"
+            class="mr-4 mb-4 w-56"
         >
+            <img
+                mat-card-image
+                [src]="movie.cover"
+                [alt]="movie.name + ' cover'"
+                class="max-w-none h-72"
+            />
             <div class="flex flex-row items-center">
-                <p class="mr-2">Name: {{ movie.name }}</p>
-                <button
-                    mat-raised-button
-                    color="warn"
-                    (click)="removeMovie(index)"
-                >
-                    Remove
-                </button>
+                <h2 class="text-lg font-bold">{{ movie.name }}</h2>
             </div>
-            <p>Release date: {{ movie.date | date }}</p>
-            <p>Price: {{ movie.price | currency }}</p>
-            <app-rating></app-rating>
+            <app-rating [rate]="movie.rating"></app-rating>
+            <mat-card-actions align="end">
+                <button mat-button color="primary">Edit</button>
+                <button mat-button color="warn" (click)="removeMovie(index)">
+                    Delete
+                </button>
+            </mat-card-actions>
         </mat-card>
     </div>
 </app-generic-list>

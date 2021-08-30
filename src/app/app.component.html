@@ -1,5 +1,5 @@
-<app-menu-bar></app-menu-bar>
-<div class="mat-app-background flex flex-col h-screen">
+<app-menu-bar (nightMode)="toggleTheme($event)"></app-menu-bar>
+<div class="flex flex-col p-4">
     <app-movies-list [movies]="movies"></app-movies-list>
 </div>
 
