@@ -1,25 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MoviesListComponent } from './movies-list/movies-list.component';
+import { MoviesListComponent } from './components/movies-list/movies-list.component';
 import { GenericListModule } from '../core/generic-list/generic-list.module';
 import { MaterialModule } from '../core/material/material.module';
 import { RatingModule } from '../shared/rating/rating.module';
-
-
+import { ListMoviesComponent } from './pages/list-movies/list-movies.component';
+import { MoviesRoutingModule } from './movies-routing.module';
 
 @NgModule({
-  declarations: [
-    MoviesListComponent
-  ],
-  imports: [
-    GenericListModule,
-    RatingModule,
-    CommonModule,
-
-    MaterialModule
-  ],
-  exports: [
-    MoviesListComponent,
-  ]
+    declarations: [MoviesListComponent, ListMoviesComponent],
+    imports: [
+        GenericListModule,
+        RatingModule,
+        CommonModule,
+        MaterialModule,
+        MoviesRoutingModule,
+    ],
 })
-export class MoviesModule { }
+export class MoviesModule {}

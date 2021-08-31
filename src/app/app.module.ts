@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MoviesModule } from './movies/movies.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule } from './layout/layout.module';
 
@@ -15,7 +14,6 @@ import { LayoutModule } from './layout/layout.module';
     BrowserModule,
     AppRoutingModule,
 
-    MoviesModule,
     LayoutModule,
 
     BrowserAnimationsModule
