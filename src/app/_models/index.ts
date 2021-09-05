@@ -1,0 +1,1 @@
+export { GenreModel } from "./genres/genre.model";

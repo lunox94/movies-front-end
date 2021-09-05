@@ -6,9 +6,10 @@ import { genresRoutes } from './genre.routing';
 import { ListGenresComponent } from './pages/list-genres/list-genres.component';
 import { MaterialModule } from '../core/material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AddEditFormComponent } from './components/add-edit-form/add-edit-form.component';
 
 @NgModule({
-    declarations: [AddGenreComponent, ListGenresComponent],
+    declarations: [AddGenreComponent, ListGenresComponent, AddEditFormComponent],
     imports: [
         CommonModule,
         RouterModule.forChild(genresRoutes),
