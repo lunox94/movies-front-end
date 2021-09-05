@@ -6,4 +6,9 @@ export const appRoutes: Routes = [
         loadChildren: () =>
             import('./movies/movies.module').then((m) => m.MoviesModule),
     },
+    {
+        path: 'genres',
+        loadChildren: () =>
+            import('./genres/genres.module').then((m) => m.GenresModule),
+    },
 ];
