@@ -11,4 +11,8 @@ export const appRoutes: Routes = [
         loadChildren: () =>
             import('./genres/genres.module').then((m) => m.GenresModule),
     },
+    {
+        path: '**',
+        redirectTo: 'movies'
+    }
 ];

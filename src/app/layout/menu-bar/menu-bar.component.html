@@ -1,5 +1,13 @@
-<mat-toolbar color="primary" class="sticky top-0 z-50 flex flex-row justify-between">
-    <a mat-button routerLink="/movies"><mat-icon>local_movies</mat-icon> Movies</a>
+<mat-toolbar
+    color="primary"
+    class="sticky top-0 z-50 flex flex-row justify-between"
+>
+    <div>
+        <a mat-button routerLink="/movies"
+            ><mat-icon class="mr-1">local_movies</mat-icon>Movies</a
+        >
+        <a mat-button routerLink="/genres">Genres</a>
+    </div>
     <mat-slide-toggle (change)="toggleTheme($event)">
         <mat-icon>dark_mode</mat-icon>
     </mat-slide-toggle>

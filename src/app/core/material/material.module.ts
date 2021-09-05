@@ -6,6 +6,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
     declarations: [],
@@ -17,6 +18,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
         MatIconModule,
         MatCardModule,
         MatSlideToggleModule,
+        MatInputModule,
     ],
 })
 export class MaterialModule {}
