@@ -1,1 +1,39 @@
-<p>add-edit-actor-form works!</p>
+<mat-card class="max-w-md m-auto">
+    <mat-card-title>{{ formMode }} actor</mat-card-title>
+    <form [formGroup]="form" (ngSubmit)="submit()" class="flex flex-col" #_form>
+        <mat-form-field>
+            <mat-label>Name*</mat-label>
+            <input matInput formControlName="name" />
+            <mat-error *ngIf="form.controls.name.hasError('required')"
+                >This is a required field</mat-error
+            >
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Date of birth*</mat-label>
+            <input
+                matInput
+                formControlName="dateOfBirth"
+                [matDatepicker]="datePicker"
+            />
+            <mat-datepicker-toggle [for]="datePicker"></mat-datepicker-toggle>
+            <mat-datepicker #datePicker></mat-datepicker>
+            <mat-error *ngIf="form.controls.dateOfBirth.hasError('required')"
+                >This is a required field</mat-error
+            >
+        </mat-form-field>
+    </form>
+    <mat-card-actions align="end">
+        <div class="mr-2">
+            <button
+                mat-flat-button
+                color="accent"
+                (click)="_form.requestSubmit()"
+                [disabled]="form.invalid"
+            >
+                {{ formMode }}
+            </button>
+        </div>
+        <a mat-button routerLink="/actors">Cancel</a>
+    </mat-card-actions>
+</mat-card>
