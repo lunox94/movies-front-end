@@ -3,10 +3,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { GenreModel } from 'src/app/_models';
 
 @Component({
-    selector: 'app-add-edit-form',
-    templateUrl: './add-edit-form.component.html',
+    selector: 'app-add-edit-genre-form',
+    templateUrl: './add-edit-genre-form.component.html',
 })
-export class AddEditFormComponent implements OnInit {
+export class AddEditGenreFormComponent implements OnInit {
     form: FormGroup;
 
     @Input() formMode: 'Add' | 'Edit' = 'Add';
