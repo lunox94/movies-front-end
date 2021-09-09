@@ -7,9 +7,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { actorRoutes } from './actors.routing';
 import { AddActorComponent } from './pages/add-actor/add-actor.component';
+import { EditActorComponent } from './pages/edit-actor/edit-actor.component';
 
 @NgModule({
-    declarations: [ListActorsComponent, AddEditActorFormComponent, AddActorComponent],
+    declarations: [ListActorsComponent, AddEditActorFormComponent, AddActorComponent, EditActorComponent],
     imports: [
         CommonModule,
         ReactiveFormsModule,
