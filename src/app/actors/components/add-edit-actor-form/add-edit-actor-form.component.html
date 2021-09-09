@@ -16,7 +16,7 @@
                 formControlName="dateOfBirth"
                 [matDatepicker]="datePicker"
             />
-            <mat-datepicker-toggle [for]="datePicker"></mat-datepicker-toggle>
+            <mat-datepicker-toggle matSuffix [for]="datePicker"></mat-datepicker-toggle>
             <mat-datepicker #datePicker></mat-datepicker>
             <mat-error *ngIf="form.controls.dateOfBirth.hasError('required')"
                 >This is a required field</mat-error

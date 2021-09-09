@@ -8,6 +8,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
     declarations: [],
@@ -20,7 +21,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
         MatCardModule,
         MatSlideToggleModule,
         MatInputModule,
-        MatDatepickerModule
+        MatDatepickerModule,
+        MatNativeDateModule,
     ],
 })
 export class MaterialModule {}

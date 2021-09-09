@@ -13,8 +13,8 @@ export class AddEditActorFormComponent implements OnInit {
     @Input() actor?: ActorModel;
     @Output() onSubmit: EventEmitter<ActorModel> = new EventEmitter();
 
-    constructor(private formBuilder: FormBuilder) {
-        this.form = this.formBuilder.group({
+    constructor(private _formBuilder: FormBuilder) {
+        this.form = this._formBuilder.group({
             name: ['', [Validators.required]],
             dateOfBirth: ['', [Validators.required]],
         });
