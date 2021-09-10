@@ -16,12 +16,32 @@
                 formControlName="dateOfBirth"
                 [matDatepicker]="datePicker"
             />
-            <mat-datepicker-toggle matSuffix [for]="datePicker"></mat-datepicker-toggle>
+            <mat-datepicker-toggle
+                matSuffix
+                [for]="datePicker"
+            ></mat-datepicker-toggle>
             <mat-datepicker #datePicker></mat-datepicker>
             <mat-error *ngIf="form.controls.dateOfBirth.hasError('required')"
                 >This is a required field</mat-error
             >
         </mat-form-field>
+        <ng-container *ngIf="preview">
+            <img [src]="preview" />
+        </ng-container>
+        <input
+            type="file"
+            accept="image/*"
+            (change)="onImageChange($event)"
+            hidden
+            #imagePicker
+        />
+        <button
+            mat-flat-button
+            color="primary"
+            (click)="$event.preventDefault(); imagePicker.click()"
+        >
+            Upload image
+        </button>
     </form>
     <mat-card-actions align="end">
         <div class="mr-2">

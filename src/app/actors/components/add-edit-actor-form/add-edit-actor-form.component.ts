@@ -8,6 +8,7 @@ import { ActorModel } from 'src/app/_models/actors/actor.model';
 })
 export class AddEditActorFormComponent implements OnInit {
     form: FormGroup;
+    preview?: string;
 
     @Input() formMode: 'Add' | 'Edit' = 'Add';
     @Input() actor?: ActorModel;
@@ -17,6 +18,7 @@ export class AddEditActorFormComponent implements OnInit {
         this.form = this._formBuilder.group({
             name: ['', [Validators.required]],
             dateOfBirth: ['', [Validators.required]],
+            photo: [''],
         });
     }
 
@@ -28,5 +30,23 @@ export class AddEditActorFormComponent implements OnInit {
 
     submit() {
         this.onSubmit.emit(this.form.value);
+    }
+
+    onImageChange(event: Event): void {
+        const fReader = new FileReader();
+        const element = event?.target as HTMLInputElement;
+        if (element?.files && element.files.length) {
+            const file = element.files.item(0) as File;
+
+            fReader.onload = () => {
+                this.preview = fReader.result as string;
+
+                this.form.patchValue({
+                    photo: this.preview,
+                });
+            };
+
+            fReader.readAsDataURL(file);
+        }
     }
 }
