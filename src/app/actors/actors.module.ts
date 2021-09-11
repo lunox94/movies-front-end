@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import { actorRoutes } from './actors.routing';
 import { AddActorComponent } from './pages/add-actor/add-actor.component';
 import { EditActorComponent } from './pages/edit-actor/edit-actor.component';
+import { InputMarkdownModule } from '../shared/input-markdown/input-markdown.module';
 
 @NgModule({
     declarations: [ListActorsComponent, AddEditActorFormComponent, AddActorComponent, EditActorComponent],
@@ -16,6 +17,7 @@ import { EditActorComponent } from './pages/edit-actor/edit-actor.component';
         ReactiveFormsModule,
         RouterModule.forChild(actorRoutes),
         MaterialModule,
+        InputMarkdownModule,
     ],
 })
 export class ActorsModule {}

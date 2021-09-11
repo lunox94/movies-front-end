@@ -9,6 +9,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @NgModule({
     declarations: [],
@@ -23,6 +24,7 @@ import { MatNativeDateModule } from '@angular/material/core';
         MatInputModule,
         MatDatepickerModule,
         MatNativeDateModule,
+        MatTabsModule,
     ],
 })
 export class MaterialModule {}

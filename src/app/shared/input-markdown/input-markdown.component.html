@@ -1,0 +1,14 @@
+<ng-container>
+    <mat-form-field appearance="fill" class="w-full">
+        <mat-label>Biography</mat-label>
+        <textarea
+            matInput
+            (input)="onChanges($event)"
+            placeholder="Write a short biography using markdown language"
+        ></textarea>
+    </mat-form-field>
+
+    <div class="p-2 mb-6">
+        <markdown [data]="markdown"></markdown>
+    </div>
+</ng-container>
