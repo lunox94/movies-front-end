@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RatingComponent } from './rating.component';
-import { MaterialModule } from 'src/app/core/material/material.module';
+import { MaterialModule } from 'src/app/shared/material/material.module';
 
 @NgModule({
     declarations: [RatingComponent],
