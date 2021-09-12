@@ -28,23 +28,7 @@
 
         <app-input-markdown></app-input-markdown>
 
-        <ng-container *ngIf="preview">
-            <img [src]="preview" />
-        </ng-container>
-        <input
-            type="file"
-            accept="image/*"
-            (change)="onImageChange($event)"
-            hidden
-            #imagePicker
-        />
-        <button
-            mat-flat-button
-            color="primary"
-            (click)="$event.preventDefault(); imagePicker.click()"
-        >
-            Upload image
-        </button>
+        <app-image-selector></app-image-selector>
     </form>
     <mat-card-actions align="end">
         <div class="mr-2">
