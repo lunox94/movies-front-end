@@ -1,44 +1,37 @@
-<div
-    *ngIf="image"
-    (click)="imagePicker.click()"
-    class="h-32 w-min cursor-pointer"
->
-    <img [src]="image" class="w-32 h-32 rounded-full absolute" />
-    <div
-        class="
-            w-32
-            h-32
-            rounded-full
-            absolute
-            opacity-0
-            transition-opacity
-            ease-in-out
-            duration-300
-            hover:opacity-90
-        "
-    >
-        <div
-            class="
-                bg-black
-                w-32
-                h-32
-                rounded-full
-                absolute
-                opacity-70
-            "
-        ></div>
+<div class="h-32 w-32">
+    <div (click)="imagePicker.click()" class="cursor-pointer">
+        <img [src]="image" class="w-32 h-32 rounded-full absolute" />
         <div
             class="
                 w-32
                 h-32
                 rounded-full
                 absolute
-                flex
-                justify-center
-                items-center
+                opacity-0
+                transition-opacity
+                ease-in-out
+                duration-300
+                hover:opacity-90
             "
         >
-            <mat-icon class="text-white transform scale-150">add_a_photo</mat-icon>
+            <div
+                class="bg-black w-32 h-32 rounded-full absolute opacity-70"
+            ></div>
+            <div
+                class="
+                    w-32
+                    h-32
+                    rounded-full
+                    absolute
+                    flex
+                    justify-center
+                    items-center
+                "
+            >
+                <mat-icon class="text-white transform scale-150"
+                    >add_a_photo</mat-icon
+                >
+            </div>
         </div>
     </div>
 </div>
