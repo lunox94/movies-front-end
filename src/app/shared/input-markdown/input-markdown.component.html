@@ -1,14 +1,21 @@
-<ng-container>
-    <mat-form-field appearance="fill" class="w-full">
-        <mat-label>Biography</mat-label>
-        <textarea
-            matInput
-            (input)="onChanges($event)"
-            placeholder="Write a short biography using markdown language"
-        ></textarea>
-    </mat-form-field>
-
-    <div class="p-2 mb-6">
-        <markdown [data]="markdown"></markdown>
-    </div>
-</ng-container>
+<mat-tab-group
+    dynamicHeight
+    mat-align-tabs="end"
+    animationDuration="500ms"
+>
+    <mat-tab label="Edit">
+        <mat-form-field appearance="fill" class="w-full">
+            <mat-label>Biography</mat-label>
+            <textarea
+                matInput
+                (input)="onChanges($event)"
+                placeholder="Write a short biography using markdown language"
+            ></textarea>
+        </mat-form-field>
+    </mat-tab>
+    <mat-tab label="Preview">
+        <div class="p-2 mb-4">
+            <markdown [data]="markdown" ngPreserveWhitespaces></markdown>
+        </div>
+    </mat-tab>
+</mat-tab-group>
