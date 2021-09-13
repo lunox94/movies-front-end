@@ -1,10 +1,12 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
-const AVATAR_PLACEHOLDER = 'https://th.bing.com/th/id/OIP.ZT-Tw8tYy38htqch69vsGQAAAA?pid=ImgDet&rs=1';
+const AVATAR_PLACEHOLDER =
+    'https://th.bing.com/th/id/OIP.ZT-Tw8tYy38htqch69vsGQAAAA?pid=ImgDet&rs=1';
 
 @Component({
     selector: 'app-image-selector',
     templateUrl: './image-selector.component.html',
+    styleUrls: ['./image-selector.component.css'],
 })
 export class ImageSelectorComponent implements OnInit {
     @Output() onImageSelected: EventEmitter<string> = new EventEmitter();
