@@ -2,6 +2,7 @@
     <div>
         <img [src]="image" class="w-32 h-32 rounded-full absolute" />
         <div
+            (click)="imagePicker.click()"
             class="
                 w-32
                 h-32
@@ -12,12 +13,12 @@
                 ease-in-out
                 duration-300
                 hover:opacity-100
+                cursor-pointer
             "
         >
             <div
                 id="overlay"
-                class="bg-black w-32 h-32 rounded-full absolute cursor-pointer opacity-80"
-                (click)="imagePicker.click()"
+                class="bg-black w-32 h-32 rounded-full absolute opacity-80"
             >
                 <div
                     class="
@@ -32,7 +33,7 @@
                         opacity-100
                     "
                 >
-                    <mat-icon class="text-white">add_a_photo</mat-icon>
+                    <mat-icon class="text-white">photo_camera</mat-icon>
                 </div>
             </div>
         </div>
