@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ActorModel } from 'src/app/_models/actors/actor.model';
+import { ActorModel } from 'src/app/_models';
 
 @Component({
     selector: 'app-add-actor',

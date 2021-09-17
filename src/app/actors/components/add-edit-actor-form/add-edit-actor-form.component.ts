@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActorModel } from 'src/app/_models/actors/actor.model';
+import { ActorModel } from 'src/app/_models';
 
 @Component({
     selector: 'app-add-edit-actor-form',
