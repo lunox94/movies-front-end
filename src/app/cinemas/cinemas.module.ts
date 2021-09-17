@@ -7,9 +7,10 @@ import { MaterialModule } from '../shared/material/material.module';
 import { AddEditCinemaFormComponent } from './components/add-edit-cinema-form/add-edit-cinema-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ListCinemasComponent } from './pages/list-cinemas/list-cinemas.component';
+import { EditCinemaComponent } from './pages/edit-cinema/edit-cinema.component';
 
 @NgModule({
-    declarations: [AddCinemaComponent, AddEditCinemaFormComponent, ListCinemasComponent],
+    declarations: [AddCinemaComponent, AddEditCinemaFormComponent, ListCinemasComponent, EditCinemaComponent],
     imports: [
         CommonModule,
         RouterModule.forChild(cinemasRoutes),
