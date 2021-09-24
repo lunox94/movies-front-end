@@ -8,14 +8,21 @@ import { AddEditCinemaFormComponent } from './components/add-edit-cinema-form/ad
 import { ReactiveFormsModule } from '@angular/forms';
 import { ListCinemasComponent } from './pages/list-cinemas/list-cinemas.component';
 import { EditCinemaComponent } from './pages/edit-cinema/edit-cinema.component';
+import { MapModule } from '../shared/map/map.module';
 
 @NgModule({
-    declarations: [AddCinemaComponent, AddEditCinemaFormComponent, ListCinemasComponent, EditCinemaComponent],
+    declarations: [
+        AddCinemaComponent,
+        AddEditCinemaFormComponent,
+        ListCinemasComponent,
+        EditCinemaComponent,
+    ],
     imports: [
         CommonModule,
         RouterModule.forChild(cinemasRoutes),
         ReactiveFormsModule,
         MaterialModule,
+        MapModule,
     ],
 })
 export class CinemasModule {}
