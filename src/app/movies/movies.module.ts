@@ -10,6 +10,7 @@ import { AddEditMovieFormComponent } from './components/add-edit-movie-form/add-
 import { AddMovieComponent } from './pages/add-movie/add-movie.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { InputMarkdownModule } from '../shared/input-markdown/input-markdown.module';
+import { ImageSelectorModule } from '../shared/image-selector/image-selector.module';
 
 @NgModule({
     declarations: [
@@ -23,9 +24,10 @@ import { InputMarkdownModule } from '../shared/input-markdown/input-markdown.mod
         RatingModule,
         CommonModule,
         ReactiveFormsModule,
-        MaterialModule,
         MoviesRoutingModule,
         InputMarkdownModule,
+        ImageSelectorModule,
+        MaterialModule,
     ],
 })
 export class MoviesModule {}

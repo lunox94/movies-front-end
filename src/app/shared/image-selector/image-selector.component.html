@@ -1,12 +1,10 @@
-<div class="h-32 w-32">
+<div [ngClass]="getDynamicClasses()">
     <div>
-        <img [src]="image" class="w-32 h-32 rounded-full absolute" />
+        <img [src]="image" [ngClass]="getDynamicClasses()" class="absolute" />
         <div
             (click)="imagePicker.click()"
+            [ngClass]="getDynamicClasses()"
             class="
-                w-32
-                h-32
-                rounded-full
                 absolute
                 opacity-0
                 transition-opacity
@@ -18,14 +16,17 @@
         >
             <div
                 id="overlay"
-                class="bg-black w-32 h-32 rounded-full absolute opacity-80"
+                [ngClass]="getDynamicClasses()"
+                class="bg-black absolute opacity-80"
             >
                 <div
+                    [ngClass]="{
+                        'bottom-2': size === 'Small',
+                        'bottom-8': size === 'Normal'
+                    }"
                     class="
-                        w-32
-                        rounded-full
+                        w-full
                         absolute
-                        bottom-2
                         flex
                         justify-center
                         transform

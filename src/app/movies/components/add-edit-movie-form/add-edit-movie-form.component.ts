@@ -11,6 +11,7 @@ export class AddEditMovieFormComponent implements OnInit {
 
     constructor(private _formBuilder: FormBuilder) {
         this.form = this._formBuilder.group({
+            dateOfRelease: ['', [Validators.required]],
             title: ['', [Validators.required]],
             onCinemas: [false],
         });
@@ -18,5 +19,7 @@ export class AddEditMovieFormComponent implements OnInit {
 
     ngOnInit(): void {}
 
-    submit(): void {}
+    submit(): void {
+        console.log(this.form.value);
+    }
 }

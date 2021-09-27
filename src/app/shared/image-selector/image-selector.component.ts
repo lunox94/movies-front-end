@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 const AVATAR_PLACEHOLDER =
     'https://th.bing.com/th/id/OIP.ZT-Tw8tYy38htqch69vsGQAAAA?pid=ImgDet&rs=1';
@@ -9,8 +9,10 @@ const AVATAR_PLACEHOLDER =
     styleUrls: ['./image-selector.component.css'],
 })
 export class ImageSelectorComponent implements OnInit {
+    @Input() size: 'Small' | 'Normal' = 'Small';
+    @Input() rounded = true;
+    @Input() image: string = AVATAR_PLACEHOLDER;
     @Output() onImageSelected: EventEmitter<string> = new EventEmitter();
-    image?: string = AVATAR_PLACEHOLDER;
 
     constructor() {}
 
@@ -30,5 +32,16 @@ export class ImageSelectorComponent implements OnInit {
 
             fReader.readAsDataURL(file);
         }
+    }
+
+    getDynamicClasses(): any {
+        return {
+            'rounded-full': this.rounded,
+            'rounded-md': !this.rounded,
+            'w-32': this.size === 'Small',
+            'h-32': this.size === 'Small',
+            'w-56': this.size === 'Normal',
+            'h-72': this.size === 'Normal',
+        };
     }
 }

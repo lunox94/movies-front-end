@@ -1,11 +1,7 @@
-<mat-tab-group
-    dynamicHeight
-    mat-align-tabs="end"
-    animationDuration="500ms"
->
+<mat-tab-group dynamicHeight mat-align-tabs="end" animationDuration="500ms">
     <mat-tab label="Edit">
         <mat-form-field appearance="fill" class="w-full">
-            <mat-label>{{label}}</mat-label>
+            <mat-label>{{ label }}</mat-label>
             <textarea
                 matInput
                 (input)="onChanges($event)"

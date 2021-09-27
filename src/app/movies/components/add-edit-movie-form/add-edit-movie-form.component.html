@@ -1,11 +1,7 @@
 <mat-card class="max-w-md m-auto">
-    <mat-card-title>{{formMode}} movie</mat-card-title>
-    <form
-        [formGroup]="form"
-        (ngSubmit)="submit()"
-        class="flex flex-col"
-        #_form
-    >
+    <mat-card-title>{{ formMode }} movie</mat-card-title>
+    <form [formGroup]="form" (ngSubmit)="submit()" class="flex flex-col" #_form>
+        <!-- Title field -->
         <mat-form-field>
             <mat-label>Title*</mat-label>
             <input matInput formControlName="title" />
@@ -13,8 +9,39 @@
                 >This is a required field</mat-error
             >
         </mat-form-field>
-        <mat-checkbox formControlName="onCinemas">On cinemas</mat-checkbox>
+        <!-- Release date field -->
+        <mat-form-field>
+            <mat-label>Release date*</mat-label>
+            <input
+                matInput
+                [matDatepicker]="datePicker"
+                formControlName="dateOfRelease"
+            />
+            <mat-datepicker-toggle
+                matSuffix
+                [for]="datePicker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #datePicker></mat-datepicker>
+            <mat-error *ngIf="form.controls.dateOfRelease.hasError('required')"
+                >This is a required field</mat-error
+            >
+        </mat-form-field>
+        <!-- On cinemas field -->
+        <mat-checkbox formControlName="onCinemas" class="mb-2"
+            >On cinemas</mat-checkbox
+        >
+        <!-- Synopsis field -->
         <app-input-markdown label="Synopsis"></app-input-markdown>
+        <!-- Poster field -->
+        <div class="flex flex-col mb-3">
+            <mat-label class="mb-2">Select movie poster</mat-label>
+            <app-image-selector
+                size="Normal"
+                [rounded]="false"
+                image="https://th.bing.com/th/id/OIP.Pneh22uyXw_rJ8leBae8VwHaHa?pid=ImgDet&rs=1"
+                class="ml-auto mr-auto"
+            ></app-image-selector>
+        </div>
     </form>
     <mat-card-actions align="end">
         <div class="mr-2">
@@ -24,7 +51,7 @@
                 (click)="_form.requestSubmit()"
                 [disabled]="form.invalid"
             >
-                {{formMode}}
+                {{ formMode }}
             </button>
         </div>
         <a mat-button routerLink="/movies">Cancel</a>
