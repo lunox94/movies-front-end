@@ -1,9 +1,14 @@
-import { Routes } from "@angular/router";
-import { ListMoviesComponent } from "./pages/list-movies/list-movies.component";
+import { Routes } from '@angular/router';
+import { AddMovieComponent } from './pages/add-movie/add-movie.component';
+import { ListMoviesComponent } from './pages/list-movies/list-movies.component';
 
 export const moviesRoutes: Routes = [
     {
         path: '',
-        component: ListMoviesComponent
-    }
-]
+        component: ListMoviesComponent,
+    },
+    {
+        path: 'add',
+        component: AddMovieComponent,
+    },
+];

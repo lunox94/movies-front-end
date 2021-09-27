@@ -8,15 +8,24 @@ import { ListMoviesComponent } from './pages/list-movies/list-movies.component';
 import { MoviesRoutingModule } from './movies-routing.module';
 import { AddEditMovieFormComponent } from './components/add-edit-movie-form/add-edit-movie-form.component';
 import { AddMovieComponent } from './pages/add-movie/add-movie.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { InputMarkdownModule } from '../shared/input-markdown/input-markdown.module';
 
 @NgModule({
-    declarations: [MoviesListComponent, ListMoviesComponent, AddEditMovieFormComponent, AddMovieComponent],
+    declarations: [
+        MoviesListComponent,
+        ListMoviesComponent,
+        AddEditMovieFormComponent,
+        AddMovieComponent,
+    ],
     imports: [
         GenericListModule,
         RatingModule,
         CommonModule,
+        ReactiveFormsModule,
         MaterialModule,
         MoviesRoutingModule,
+        InputMarkdownModule,
     ],
 })
 export class MoviesModule {}

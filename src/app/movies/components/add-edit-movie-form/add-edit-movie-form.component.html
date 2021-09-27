@@ -1,1 +1,32 @@
-<p>add-edit-movie-form works!</p>
+<mat-card class="max-w-md m-auto">
+    <mat-card-title>{{formMode}} movie</mat-card-title>
+    <form
+        [formGroup]="form"
+        (ngSubmit)="submit()"
+        class="flex flex-col"
+        #_form
+    >
+        <mat-form-field>
+            <mat-label>Title*</mat-label>
+            <input matInput formControlName="title" />
+            <mat-error *ngIf="form.controls.title.hasError('required')"
+                >This is a required field</mat-error
+            >
+        </mat-form-field>
+        <mat-checkbox formControlName="onCinemas">On cinemas</mat-checkbox>
+        <app-input-markdown label="Synopsis"></app-input-markdown>
+    </form>
+    <mat-card-actions align="end">
+        <div class="mr-2">
+            <button
+                mat-flat-button
+                color="accent"
+                (click)="_form.requestSubmit()"
+                [disabled]="form.invalid"
+            >
+                {{formMode}}
+            </button>
+        </div>
+        <a mat-button routerLink="/movies">Cancel</a>
+    </mat-card-actions>
+</mat-card>

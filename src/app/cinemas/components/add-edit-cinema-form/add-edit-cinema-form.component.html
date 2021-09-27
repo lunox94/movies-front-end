@@ -14,6 +14,7 @@
             >
         </mat-form-field>
 
+        <mat-label>Select the cinema location on the map</mat-label>
         <app-map [initialLocation]="cinema?.latLng" (onLocationChanges)="onLocationChanges($event)" class="mb-3"></app-map>
     </form>
     <mat-card-actions align="end">

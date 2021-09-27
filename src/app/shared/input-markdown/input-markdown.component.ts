@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
     selector: 'app-input-markdown',
     templateUrl: './input-markdown.component.html',
 })
 export class InputMarkdownComponent implements OnInit {
+    @Input() label: string = 'Text';
     markdown?: string;
     constructor() {}
 
