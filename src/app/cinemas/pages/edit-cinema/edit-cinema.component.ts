@@ -9,6 +9,7 @@ import { CinemaModel } from 'src/app/_models';
 export class EditCinemaComponent implements OnInit {
     cinema: CinemaModel = {
         name: 'Yara',
+        latLng: { lat: 23.13994563009307, lng: -82.38341689109804 },
     };
     constructor(
         private _router: Router,

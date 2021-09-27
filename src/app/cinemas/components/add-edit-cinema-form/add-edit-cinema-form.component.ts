@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { CinemaModel } from 'src/app/_models';
+import { CinemaModel, LatLng } from 'src/app/_models';
 
 @Component({
     selector: 'app-add-edit-cinema-form',
@@ -16,6 +16,7 @@ export class AddEditCinemaFormComponent implements OnInit {
     constructor(private _formBuilder: FormBuilder) {
         this.form = this._formBuilder.group({
             name: ['', [Validators.required]],
+            latLng: ['', [Validators.required]],
         });
     }
 
@@ -27,5 +28,9 @@ export class AddEditCinemaFormComponent implements OnInit {
 
     submit(): void {
         this.onSubmit.emit(this.form.value);
+    }
+
+    onLocationChanges(latLng: LatLng): void {
+        this.form.controls.latLng.setValue(latLng);
     }
 }

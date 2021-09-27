@@ -14,7 +14,7 @@
             >
         </mat-form-field>
 
-        <app-map class="mb-3"></app-map>
+        <app-map [initialLocation]="cinema?.latLng" (onLocationChanges)="onLocationChanges($event)" class="mb-3"></app-map>
     </form>
     <mat-card-actions align="end">
         <div class="mr-2">
