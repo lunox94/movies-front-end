@@ -11,6 +11,7 @@ import { AddMovieComponent } from './pages/add-movie/add-movie.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { InputMarkdownModule } from '../shared/input-markdown/input-markdown.module';
 import { ImageSelectorModule } from '../shared/image-selector/image-selector.module';
+import { SelectActorsComponent } from './components/select-actors/select-actors.component';
 
 @NgModule({
     declarations: [
@@ -18,6 +19,7 @@ import { ImageSelectorModule } from '../shared/image-selector/image-selector.mod
         ListMoviesComponent,
         AddEditMovieFormComponent,
         AddMovieComponent,
+        SelectActorsComponent,
     ],
     imports: [
         GenericListModule,
