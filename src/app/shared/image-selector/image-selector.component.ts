@@ -1,7 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-
-const AVATAR_PLACEHOLDER =
-    'https://th.bing.com/th/id/OIP.ZT-Tw8tYy38htqch69vsGQAAAA?pid=ImgDet&rs=1';
+import { AVATAR_PLACEHOLDER } from 'src/app/_const/images';
 
 @Component({
     selector: 'app-image-selector',

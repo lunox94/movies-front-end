@@ -13,6 +13,7 @@ import { ImageSelectorModule } from '../shared/image-selector/image-selector.mod
 import { SelectActorsComponent } from './components/select-actors/select-actors.component';
 import { RouterModule } from '@angular/router';
 import { moviesRoutes } from './movies.routing';
+import { AvatarModule } from '../shared/avatar/avatar.module';
 
 @NgModule({
     declarations: [
@@ -30,6 +31,7 @@ import { moviesRoutes } from './movies.routing';
         ReactiveFormsModule,
         InputMarkdownModule,
         ImageSelectorModule,
+        AvatarModule,
         MaterialModule,
     ],
 })
