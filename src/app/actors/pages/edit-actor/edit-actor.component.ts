@@ -8,6 +8,7 @@ import { ActorModel } from 'src/app/_models';
 })
 export class EditActorComponent implements OnInit {
     actor: ActorModel = {
+        id: 1,
         name: 'Tom Cruise',
         dateOfBirth: new Date(Date.now()),
     };
