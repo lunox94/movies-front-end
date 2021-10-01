@@ -1,9 +1,38 @@
-<ul>
-    <li *ngFor="let actor of actors">
-        <app-avatar [src]="actor.photo"></app-avatar>
-        <span>
-            {{ actor.name }}
-
-        </span>
-    </li>
-</ul>
+<div class="flex flex-col">
+    <mat-autocomplete
+        #auto="matAutocomplete"
+        [displayWith]="displayFn"
+        (optionSelected)="onOptionSelected($event)"
+    >
+        <mat-option
+            *ngFor="let actor of filteredActors | async"
+            [value]="actor"
+        >
+            <div class="flex flex-row items-center">
+                <app-avatar [src]="actor.photo" class="mr-4"></app-avatar>
+                <span>
+                    {{ actor.name }}
+                </span>
+            </div>
+        </mat-option>
+    </mat-autocomplete>
+    <div class="flex flex-row items-center">
+        <mat-form-field class="flex-grow mr-2 no-padding">
+            <mat-label>Actor</mat-label>
+            <input
+                matInput
+                [formControl]="control"
+                [matAutocomplete]="auto"
+                placeholder="Type an actor name"
+            />
+        </mat-form-field>
+        <button
+            mat-flat-button
+            color="primary"
+            [disabled]="actorAboutToAdd === undefined"
+            (click)="$event.preventDefault(); addActor()"
+        >
+            Add Actor
+        </button>
+    </div>
+</div>
