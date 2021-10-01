@@ -8,6 +8,7 @@ import { GenreModel } from 'src/app/_models';
 })
 export class EditGenreComponent implements OnInit {
     genre: GenreModel = {
+        id: 1,
         name: 'Drama',
     };
 

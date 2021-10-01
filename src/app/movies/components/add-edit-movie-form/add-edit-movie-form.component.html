@@ -33,7 +33,7 @@
         <!-- Synopsis field -->
         <app-input-markdown label="Synopsis"></app-input-markdown>
         <!-- Poster field -->
-        <div class="flex flex-col mb-3">
+        <div class="flex flex-col mb-6">
             <mat-label class="mb-2">Select movie poster</mat-label>
             <app-image-selector
                 size="Normal"
@@ -42,6 +42,18 @@
                 class="ml-auto mr-auto"
             ></app-image-selector>
         </div>
+        <!-- Select genres field -->
+        <mat-form-field>
+            <mat-label>Select genres</mat-label>
+            <mat-select multiple formControlName="genres">
+                <mat-option *ngFor="let genre of genreList" [value]="genre.id">
+                    {{ genre.name }}
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="form.controls.title.hasError('required')"
+                >Please select one or more genres</mat-error
+            >
+        </mat-form-field>
     </form>
     <mat-card-actions align="end">
         <div class="mr-2">

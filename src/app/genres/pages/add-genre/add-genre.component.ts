@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { GenreModel } from 'src/app/_models';
+import { GenreToCreateModel } from 'src/app/_models';
 
 @Component({
     selector: 'app-add-genre',
@@ -12,7 +12,7 @@ export class AddGenreComponent implements OnInit {
 
     ngOnInit(): void {}
 
-    onSubmit(value: GenreModel): void {
+    onSubmit(value: GenreToCreateModel): void {
         console.log(value);
         this._router.navigate(['/genres']);
     }
