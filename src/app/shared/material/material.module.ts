@@ -13,6 +13,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
     declarations: [],
@@ -31,6 +32,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
         MatCheckboxModule,
         MatSelectModule,
         MatAutocompleteModule,
+        MatTableModule,
     ],
 })
 export class MaterialModule {}

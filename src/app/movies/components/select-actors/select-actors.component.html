@@ -16,7 +16,8 @@
             </div>
         </mat-option>
     </mat-autocomplete>
-    <div class="flex flex-row items-center">
+    <!-- Search box -->
+    <div class="flex flex-row items-center mb-2">
         <mat-form-field class="flex-grow mr-2 no-padding">
             <mat-label>Actor</mat-label>
             <input
@@ -32,7 +33,50 @@
             [disabled]="actorAboutToAdd === undefined"
             (click)="$event.preventDefault(); addActor()"
         >
-            Add Actor
+            Add actor
         </button>
     </div>
+    <!-- Actors list -->
+    <table mat-table [dataSource]="performances" class="mat-elevation-z2">
+        <!-- Photo column -->
+        <ng-container matColumnDef="photo">
+            <th mat-header-cell *matHeaderCellDef>Photo</th>
+            <td mat-cell *matCellDef="let element">
+                <app-avatar [src]="element.actor.photo"></app-avatar>
+            </td>
+        </ng-container>
+
+        <!-- Name column -->
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>Name</th>
+            <td mat-cell *matCellDef="let element">{{ element.actor.name }}</td>
+        </ng-container>
+
+        <!-- Character column -->
+        <ng-container matColumnDef="character">
+            <th mat-header-cell *matHeaderCellDef>Character</th>
+            <td mat-cell *matCellDef="let element">
+                <mat-form-field appearance="standard" class="mb-1 w-32">
+                    <mat-label>Character name</mat-label>
+                    <input matInput [(ngModel)]="element.character" />
+                </mat-form-field>
+            </td>
+        </ng-container>
+
+        <!-- Remove button column -->
+        <ng-container matColumnDef="remove">
+            <td mat-cell *matCellDef="let element">
+                <button
+                    mat-icon-button
+                    (click)="$event.preventDefault(); removeActor(element)"
+                    color="warn"
+                    aria-label="Remove actor from performance list"
+                >
+                    <mat-icon>remove_circle</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
 </div>

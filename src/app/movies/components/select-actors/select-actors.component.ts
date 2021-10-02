@@ -1,10 +1,13 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
+import { MatTable } from '@angular/material/table';
 import { Observable } from 'rxjs';
 import { map, startWith, tap } from 'rxjs/operators';
 import { fakeActors } from 'src/app/_fake-data/actors';
 import { ActorModel } from 'src/app/_models';
+
+type Performance = { character: string; actor: ActorModel };
 
 @Component({
     selector: 'app-select-actors',
@@ -12,9 +15,11 @@ import { ActorModel } from 'src/app/_models';
 })
 export class SelectActorsComponent implements OnInit {
     @Input() actors = fakeActors;
+    @ViewChild(MatTable) table?: MatTable<any>;
     filteredActors: Observable<ActorModel[]>;
     actorAboutToAdd?: ActorModel;
-    selectedActors: ActorModel[] = [];
+    performances: Performance[] = [];
+    displayedColumns = ['photo', 'name', 'character', 'remove'];
     control: FormControl;
 
     constructor() {
@@ -37,8 +42,18 @@ export class SelectActorsComponent implements OnInit {
     }
 
     addActor(): void {
-        this.selectedActors.push(this.actorAboutToAdd!);
+        this.performances.push({ character: '', actor: this.actorAboutToAdd! });
         this.control.patchValue('');
+
+        this.table?.renderRows();
+    }
+
+    removeActor(performance: Performance): void {
+        const index = this.performances.indexOf(performance);
+        if (index !== -1) {
+            this.performances.splice(index, 1);
+        }
+        this.table?.renderRows();
     }
 
     private _filter(value: string | ActorModel): ActorModel[] {
