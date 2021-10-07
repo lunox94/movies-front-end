@@ -37,7 +37,12 @@
         </button>
     </div>
     <!-- Actors list -->
-    <table mat-table [dataSource]="performances" class="mat-elevation-z2">
+    <table
+        mat-table
+        [dataSource]="performances"
+        multiTemplateDataRows
+        class="mat-elevation-z2"
+    >
         <!-- Photo column -->
         <ng-container matColumnDef="photo">
             <th mat-header-cell *matHeaderCellDef>Photo</th>
@@ -49,34 +54,112 @@
         <!-- Name column -->
         <ng-container matColumnDef="name">
             <th mat-header-cell *matHeaderCellDef>Name</th>
-            <td mat-cell *matCellDef="let element">{{ element.actor.name }}</td>
-        </ng-container>
-
-        <!-- Character column -->
-        <ng-container matColumnDef="character">
-            <th mat-header-cell *matHeaderCellDef>Character</th>
             <td mat-cell *matCellDef="let element">
-                <mat-form-field appearance="standard" class="mb-1 w-32">
-                    <mat-label>Character name</mat-label>
-                    <input matInput [(ngModel)]="element.character" />
-                </mat-form-field>
+                {{ element.actor.name }}
             </td>
         </ng-container>
 
-        <!-- Remove button column -->
+        <!-- More button column -->
         <ng-container matColumnDef="remove">
-            <td mat-cell *matCellDef="let element">
+            <td
+                mat-cell
+                *matCellDef="let element"
+                class="flex flex-row justify-end"
+            >
                 <button
                     mat-icon-button
-                    (click)="$event.preventDefault(); removeActor(element)"
-                    color="warn"
-                    aria-label="Remove actor from performance list"
+                    [matMenuTriggerFor]="menu"
+                    aria-label="More actions button"
+                    (click)="$event.preventDefault(); $event.stopPropagation()"
                 >
-                    <mat-icon>remove_circle</mat-icon>
+                    <mat-icon>more_vert</mat-icon>
                 </button>
+                <mat-menu #menu="matMenu">
+                    <button
+                        mat-menu-item
+                        (click)="$event.preventDefault(); removeActor(element)"
+                    >
+                        <mat-icon color="warn">remove_circle</mat-icon>
+                        Remove actor
+                    </button>
+                </mat-menu>
             </td>
         </ng-container>
 
-        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        <!-- Expanded Content Column -->
+        <ng-container matColumnDef="expandedDetail">
+            <td
+                mat-cell
+                *matCellDef="let element"
+                [attr.colspan]="displayedColumns.length"
+            >
+                <div
+                    [@detailExpand]="
+                        element.collapsed ? 'collapsed' : 'expanded'
+                    "
+                    class="flex overflow-hidden"
+                >
+                    <div class="p-2">
+                        <p class="font-bold">Character list</p>
+                        <ul class="ml-8 list-disc">
+                            <li
+                                *ngFor="
+                                    let character of element.characters
+                                        .controls;
+                                    let i = index
+                                "
+                            >
+                                <div class="flex flex-row items-center">
+                                    <mat-form-field
+                                        appearance="standard"
+                                        class="w-48"
+                                    >
+                                        <mat-label>Character name</mat-label>
+                                        <input
+                                            matInput
+                                            [formControl]="character"
+                                        />
+                                    </mat-form-field>
+                                    <button
+                                        *ngIf="element.characters?.length > 1"
+                                        mat-icon-button
+                                        (click)="
+                                            $event.preventDefault();
+                                            removeCharacter(element, i)
+                                        "
+                                        color="warn"
+                                    >
+                                        <mat-icon>remove_circle</mat-icon>
+                                    </button>
+                                </div>
+                            </li>
+                            <div class="w-48 flex flex-row justify-center">
+                                <button
+                                    mat-icon-button
+                                    (click)="
+                                        $event.preventDefault();
+                                        addCharacter(element)
+                                    "
+                                >
+                                    <mat-icon>add_circle</mat-icon>
+                                </button>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </td>
+        </ng-container>
+
+        <tr
+            mat-row
+            *matRowDef="let row; columns: displayedColumns"
+            (click)="row.collapsed = !row.collapsed"
+            class="element-row cursor-pointer"
+        ></tr>
+        <tr
+            mat-row
+            *matRowDef="let row; columns: ['expandedDetail']"
+            style="height: 0px"
+        ></tr>
     </table>
 </div>

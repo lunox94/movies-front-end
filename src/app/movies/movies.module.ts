@@ -14,6 +14,7 @@ import { SelectActorsComponent } from './components/select-actors/select-actors.
 import { RouterModule } from '@angular/router';
 import { moviesRoutes } from './movies.routing';
 import { AvatarModule } from '../shared/avatar/avatar.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
     declarations: [
@@ -25,15 +26,15 @@ import { AvatarModule } from '../shared/avatar/avatar.module';
     ],
     imports: [
         RouterModule.forChild(moviesRoutes),
+        CommonModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MaterialModule,
         GenericListModule,
         RatingModule,
-        CommonModule,
-        ReactiveFormsModule,
-        FormsModule,
         InputMarkdownModule,
         ImageSelectorModule,
         AvatarModule,
-        MaterialModule,
     ],
 })
 export class MoviesModule {}
