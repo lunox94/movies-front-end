@@ -63,7 +63,7 @@
         <ng-container matColumnDef="remove">
             <td
                 mat-cell
-                *matCellDef="let element"
+                *matCellDef="let element; let i = dataIndex"
                 class="flex flex-row justify-end"
             >
                 <button
@@ -75,6 +75,22 @@
                     <mat-icon>more_vert</mat-icon>
                 </button>
                 <mat-menu #menu="matMenu">
+                    <button
+                        mat-menu-item
+                        (click)="$event.preventDefault(); moveActorUp(i)"
+                        [disabled]="i === 0"
+                    >
+                        <mat-icon>arrow_drop_up</mat-icon>
+                        Move up
+                    </button>
+                    <button
+                        mat-menu-item
+                        (click)="$event.preventDefault(); moveActorDown(i)"
+                        [disabled]="i === performances.length - 1"
+                    >
+                        <mat-icon>arrow_drop_down</mat-icon>
+                        Move down
+                    </button>
                     <button
                         mat-menu-item
                         (click)="$event.preventDefault(); removeActor(element)"

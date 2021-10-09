@@ -13,6 +13,7 @@ import { Observable } from 'rxjs';
 import { map, startWith, tap } from 'rxjs/operators';
 import { fakeActors } from 'src/app/_fake-data/actors';
 import { ActorModel } from 'src/app/_models';
+import { moveItemInArray } from '@angular/cdk/drag-drop';
 
 type ActorViewModel = {
     characters: FormArray;
@@ -88,6 +89,20 @@ export class SelectActorsComponent implements OnInit {
 
     removeCharacter(performance: ActorViewModel, index: number): void {
         performance.characters.removeAt(index);
+    }
+
+    moveActorUp(index: number): void {
+        if (index !== -1 && index - 1 >= 0) {
+            moveItemInArray(this.performances, index, index - 1);
+        }
+        this.table?.renderRows();
+    }
+
+    moveActorDown(index: number): void {
+        if (index !== -1 && index + 1 < this.performances.length) {
+            moveItemInArray(this.performances, index, index + 1);
+        }
+        this.table?.renderRows();
     }
 
     private _filter(value: string | ActorModel): ActorModel[] {
