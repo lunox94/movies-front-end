@@ -7,8 +7,8 @@ import {
     trigger,
 } from '@angular/animations';
 import { UntypedFormArray, UntypedFormBuilder, UntypedFormControl } from '@angular/forms';
-import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
-import { MatTable } from '@angular/material/table';
+import { MatLegacyAutocompleteSelectedEvent as MatAutocompleteSelectedEvent } from '@angular/material/legacy-autocomplete';
+import { MatLegacyTable as MatTable } from '@angular/material/legacy-table';
 import { Observable } from 'rxjs';
 import { map, startWith, tap } from 'rxjs/operators';
 import { fakeActors } from 'src/app/_fake-data/actors';
