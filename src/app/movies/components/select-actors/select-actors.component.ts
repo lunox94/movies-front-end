@@ -6,7 +6,7 @@ import {
     transition,
     trigger,
 } from '@angular/animations';
-import { FormArray, FormBuilder, FormControl } from '@angular/forms';
+import { UntypedFormArray, UntypedFormBuilder, UntypedFormControl } from '@angular/forms';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { MatTable } from '@angular/material/table';
 import { Observable } from 'rxjs';
@@ -16,7 +16,7 @@ import { ActorModel } from 'src/app/_models';
 import { moveItemInArray } from '@angular/cdk/drag-drop';
 
 type ActorViewModel = {
-    characters: FormArray;
+    characters: UntypedFormArray;
     actor: ActorModel;
     collapsed: boolean;
 };
@@ -43,10 +43,10 @@ export class SelectActorsComponent implements OnInit {
     actorAboutToAdd?: ActorModel;
     performances: ActorViewModel[] = [];
     displayedColumns = ['photo', 'name', 'remove'];
-    control: FormControl;
+    control: UntypedFormControl;
 
-    constructor(private _formBuilder: FormBuilder) {
-        this.control = new FormControl('');
+    constructor(private _formBuilder: UntypedFormBuilder) {
+        this.control = new UntypedFormControl('');
         this.filteredActors = this.control.valueChanges.pipe(
             startWith(''),
             tap(() => (this.actorAboutToAdd = undefined)),

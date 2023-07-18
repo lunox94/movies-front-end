@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { fakeGenres } from 'src/app/_fake-data/genres';
 
 @Component({
@@ -8,11 +8,11 @@ import { fakeGenres } from 'src/app/_fake-data/genres';
 })
 export class AddEditMovieFormComponent implements OnInit {
     @Input() formMode: 'Add' | 'Edit' = 'Add';
-    form: FormGroup;
+    form: UntypedFormGroup;
 
     genreList = fakeGenres;
 
-    constructor(private _formBuilder: FormBuilder) {
+    constructor(private _formBuilder: UntypedFormBuilder) {
         this.form = this._formBuilder.group({
             dateOfRelease: ['', [Validators.required]],
             title: ['', [Validators.required]],

@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { ActorModel } from 'src/app/_models';
 
 @Component({
@@ -7,13 +7,13 @@ import { ActorModel } from 'src/app/_models';
     templateUrl: './add-edit-actor-form.component.html',
 })
 export class AddEditActorFormComponent implements OnInit {
-    form: FormGroup;
+    form: UntypedFormGroup;
 
     @Input() formMode: 'Add' | 'Edit' = 'Add';
     @Input() actor?: ActorModel;
     @Output() onSubmit: EventEmitter<ActorModel> = new EventEmitter();
 
-    constructor(private _formBuilder: FormBuilder) {
+    constructor(private _formBuilder: UntypedFormBuilder) {
         this.form = this._formBuilder.group({
             name: ['', [Validators.required]],
             dateOfBirth: ['', [Validators.required]],

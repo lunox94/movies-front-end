@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { CinemaModel, LatLng } from 'src/app/_models';
 
 @Component({
@@ -11,9 +11,9 @@ export class AddEditCinemaFormComponent implements OnInit {
     @Input() cinema?: CinemaModel;
     @Output() onSubmit: EventEmitter<CinemaModel> = new EventEmitter();
 
-    form: FormGroup;
+    form: UntypedFormGroup;
 
-    constructor(private _formBuilder: FormBuilder) {
+    constructor(private _formBuilder: UntypedFormBuilder) {
         this.form = this._formBuilder.group({
             name: ['', [Validators.required]],
             latLng: ['', [Validators.required]],
