@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { MatLegacySlideToggleChange as MatSlideToggleChange } from '@angular/material/legacy-slide-toggle';
+import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 
 @Component({
   selector: 'app-menu-bar',

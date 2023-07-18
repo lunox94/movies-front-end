@@ -3,6 +3,7 @@
     <p empty>No movies to show.</p>
     <div list class="flex flex-row flex-wrap items-center">
         <mat-card
+            appearance="outlined"
             *ngFor="let movie of movies; let index = index"
             class="mr-4 mb-4 w-56"
         >
