@@ -13,10 +13,12 @@
                 [alt]="movie.name + ' cover'"
                 class="max-w-none h-72"
             />
-            <div class="flex flex-row items-center">
-                <h2 class="text-lg font-bold">{{ movie.name }}</h2>
+            <div class="ml-2">
+                <div class="flex flex-row items-center">
+                    <h2 class="text-lg font-bold">{{ movie.name }}</h2>
+                </div>
+                <app-rating [rate]="movie.rating"></app-rating>
             </div>
-            <app-rating [rate]="movie.rating"></app-rating>
             <mat-card-actions align="end">
                 <button mat-button color="primary">EDIT</button>
                 <button mat-button color="warn" (click)="removeMovie(index)">
