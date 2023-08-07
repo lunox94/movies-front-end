@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MoviesListComponent } from './components/movies-list/movies-list.component';
 import { GenericListModule } from '../shared/generic-list/generic-list.module';
 import { MaterialModule } from '../shared/material/material.module';
 import { RatingModule } from '../shared/rating/rating.module';
@@ -14,11 +13,11 @@ import { SelectActorsComponent } from './components/select-actors/select-actors.
 import { RouterModule } from '@angular/router';
 import { moviesRoutes } from './movies.routing';
 import { AvatarModule } from '../shared/avatar/avatar.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MovieWidgetComponent} from "./components/movie-widget/movie-widget.component";
+import { ConfirmMovieDeletionDialogComponent } from './dialogs/confirm-movie-deletion-dialog/confirm-movie-deletion-dialog.component';
 
 @NgModule({
     declarations: [
-        MoviesListComponent,
         ListMoviesComponent,
         AddEditMovieFormComponent,
         AddMovieComponent,
@@ -35,6 +34,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         InputMarkdownModule,
         ImageSelectorModule,
         AvatarModule,
+        MovieWidgetComponent,
+        ConfirmMovieDeletionDialogComponent
     ],
 })
 export class MoviesModule {}

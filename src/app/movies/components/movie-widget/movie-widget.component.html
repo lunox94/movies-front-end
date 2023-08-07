@@ -1,0 +1,23 @@
+<mat-card
+        appearance="outlined"
+        class="mr-4 mb-4 w-56"
+>
+    <img
+            mat-card-image
+            [src]="movie.cover"
+            [alt]="movie.title + ' cover'"
+            class="max-w-none h-72"
+    />
+    <div class="ml-2">
+        <div class="flex flex-row items-center">
+            <h2 class="text-lg font-bold">{{ movie.title }}</h2>
+        </div>
+        <app-rating [rate]="movie.rating"></app-rating>
+    </div>
+    <mat-card-actions align="end">
+        <button mat-button color="primary">EDIT</button>
+        <button mat-button color="warn" (click)="deleteMovie.emit(movie)">
+            DELETE
+        </button>
+    </mat-card-actions>
+</mat-card>

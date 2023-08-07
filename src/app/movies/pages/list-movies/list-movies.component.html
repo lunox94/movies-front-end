@@ -1,2 +1,13 @@
 <a mat-flat-button color="accent" routerLink="/movies/add" class="mb-4">Add Movie</a>
-<app-movies-list [movies]="movies$ | async"></app-movies-list>
+<app-generic-list [list]="movies$ | async">
+    <mat-spinner loading [diameter]="25"></mat-spinner>
+    <p empty>No movies to show.</p>
+
+    <!-- Movie list -->
+    <div list class="flex flex-row flex-wrap items-center">
+        <ng-container *ngFor="let movie of movies$ | async">
+            <!-- Movie widget -->
+            <app-movie-widget [movie]="movie" (deleteMovie)="openDeleteMovieDialog($event)"></app-movie-widget>
+        </ng-container>
+    </div>
+</app-generic-list>

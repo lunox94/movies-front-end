@@ -1,0 +1,8 @@
+<h1 mat-dialog-title class="text-2xl">Delete movie</h1>
+<div mat-dialog-content>
+    <p>Are you sure to delete this movie?</p>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onCancelClick()" [disabled]="!!(loading$ | async)" cdkFocusInitial>CANCEL</button>
+    <button mat-button color="warn" (click)="onDeleteClick()" [disabled]="!!(loading$ | async)">DELETE</button>
+</div>

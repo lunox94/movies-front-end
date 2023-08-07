@@ -14,4 +14,8 @@ export class MoviesService {
     getAll(): Observable<MovieModel[]> {
         return of(fakeMovies).pipe(delay(1000));
     }
+
+    deleteMovie(movie: MovieModel) {
+        return of(null).pipe(delay(1000));
+    }
 }
